@@ -59,133 +59,85 @@ def bonne_reponse(user_input: str, attendu) -> bool:
             return True
     return False
 
-# --- BANQUE DE QUESTIONS ---
+# --- BANQUE DE QUESTIONS (Cours 1, 2 et 3) ---
 # Chaque item: {"q": "...", "a": "..." OU ["...", "..."]}
 
 CATEGORIES = {
-    # ====== FRUITS ======
-    "Bases – Fruits": [
+    # ====== COURS 1 : OBJETS & PHRASES DE CLASSE ======
+    "Cours 1 – Objets de classe": [
+        {"q": "Comment dit-on « livre » en arabe ?", "a": "كتاب"},
+        {"q": "Comment dit-on « cahier » en arabe ?", "a": "دفتر"},
+        {"q": "Comment dit-on « tableau (de classe) » en arabe ?", "a": "سبورة"},
+        {"q": "Comment dit-on « stylo » en arabe ?", "a": "قلم"},
+        {"q": "Que signifie en français « كتاب » ?", "a": "livre"},
+        {"q": "Que signifie en français « قلم » ?", "a": ["stylo", "un stylo"]},
+    ],
+    "Cours 1 – Phrases utiles (classe)": [
+        {"q": "Traduire en arabe : « Je ne comprends pas »", "a": "لا أفهم"},
+        {"q": "Traduire en arabe : « Répète s’il te plaît »", "a": "مرة أخرى"},
+        {"q": "Traduire en arabe : « J’ai fini »", "a": "انتهيت"},
+        {"q": "Traduire en arabe : « Comment t’appelles-tu ? »", "a": "ما اسمك"},
+        {"q": "Traduire en arabe : « Quel âge as-tu ? »", "a": "كم عمرك"},
+        {"q": "Traduire en arabe : « Es-tu marié ? »", "a": "هل أنت متزوج"},
+        {"q": "Que signifie en français « نعم، فهمت » ?", "a": ["oui j’ai compris", "oui, j’ai compris", "j’ai compris"]},
+        {"q": "Que signifie en français « مفهوم » ?", "a": ["c’est compris", "compris"]},
+    ],
+    "Cours 1 – Sons & notions": [
+        {"q": "Quelle voyelle brève correspond à « ـَ » ?", "a": ["a", "fatha", "fatha a", "fatḥa"]},
+        {"q": "Quelle voyelle brève correspond à « ـِ » ?", "a": ["i", "kasra", "kasra i"]},
+        {"q": "Quelle voyelle brève correspond à « ـُ » ?", "a": ["u", "ou", "damma", "ḍamma"]},
+        {"q": "Voyelle longue : quelle lettre donne le son « ā » ?", "a": ["ا", "alif"]},
+        {"q": "Voyelle longue : quelle lettre donne le son « ū » ?", "a": ["و", "waw"]},
+        {"q": "Voyelle longue : quelle lettre donne le son « ī » ?", "a": ["ي", "ya", "yaa"]},
+        {"q": "Traduire en arabe : « au début »", "a": "في البداية"},
+        {"q": "Traduire en arabe : « au milieu »", "a": "في الوسط"},
+        {"q": "Traduire en arabe : « à la fin »", "a": "في النهاية"},
+        {"q": "Que signifie en français « جملة » ?", "a": ["phrase", "une phrase"]},
+        {"q": "Que signifie en français « كلمة » ?", "a": ["mot", "un mot"]},
+        {"q": "Que signifie en français « حرف » ?", "a": ["lettre", "une lettre"]},
+        {"q": "Dans « الشمس », la lettre initiale est… (solaire/lunaire) ?", "a": ["solaire", "lettre solaire", "shamsiya", "shamsiyya"]},
+        {"q": "Dans « القمر », la lettre initiale est… (solaire/lunaire) ?", "a": ["lunaire", "lettre lunaire", "qamariya", "qamariyya"]},
+    ],
+
+    # ====== COURS 2 : FAMILLE & MÉTIERS ======
+    "Cours 2 – Famille": [
+        {"q": "Comment dit-on « père » en arabe ?", "a": "أب"},
+        {"q": "Comment dit-on « mère » en arabe ?", "a": "أم"},
+        {"q": "Comment dit-on « frère » en arabe ?", "a": "أخ"},
+        {"q": "Comment dit-on « sœur » en arabe ?", "a": ["أخت", "اخت"]},
+        {"q": "Comment dit-on « fils » en arabe ?", "a": "ابن"},
+        {"q": "Comment dit-on « fille (enfant) » en arabe ?", "a": "بنت"},
+        {"q": "Comment dit-on « grand-père » en arabe ?", "a": "جد"},
+        {"q": "Comment dit-on « grand-mère » en arabe ?", "a": "جدة"},
+        {"q": "Que signifie « هذا أبي » en français ?", "a": ["c’est mon père", "voici mon père", "ceci est mon père"]},
+        {"q": "Que signifie « هذه أمي » en français ?", "a": ["c’est ma mère", "voici ma mère", "ceci est ma mère"]},
+        {"q": "Que signifie « أنا أحب أسرتي » en français ?", "a": ["j’aime ma famille", "j aime ma famille"]},
+    ],
+    "Cours 2 – Métiers": [
+        {"q": "Comment dit-on « professeur (masc.) » en arabe ?", "a": "مدرس"},
+        {"q": "Comment dit-on « médecin (m/f) » en arabe ?", "a": ["طبيب", "طبيبة"]},
+        {"q": "Comment dit-on « ingénieur » en arabe ?", "a": "مهندس"},
+        {"q": "Comment dit-on « chauffeur » en arabe ?", "a": "سائق"},
+        {"q": "Comment dit-on « directeur / gérant » en arabe ?", "a": "مدير"},
+        {"q": "Comment dit-on « infirmier » en arabe ?", "a": "ممرض"},
+        {"q": "Comment dit-on « agriculteur » en arabe ?", "a": "مزارع"},
+        {"q": "Comment dit-on « étudiant » en arabe ?", "a": "طالب"},
+    ],
+
+    # ====== COURS 3 : FRUITS & LÉGUMES ======
+    "Cours 3 – Fruits & Légumes": [
         {"q": "Comment dit-on « pomme » en arabe ?", "a": "تفاح"},
         {"q": "Comment dit-on « banane » en arabe ?", "a": "موز"},
         {"q": "Comment dit-on « orange » en arabe ?", "a": "برتقال"},
-        {"q": "Comment dit-on « citron » en arabe ?", "a": "ليمون"},
-        {"q": "Comment dit-on « fraise » en arabe ?", "a": ["فراولة", "فريز"]},
+        {"q": "Comment dit-on « fraise » en arabe ?", "a": ["فراولة", "فراوله"]},
         {"q": "Comment dit-on « raisin » en arabe ?", "a": "عنب"},
+        {"q": "Comment dit-on « grenade (fruit) » en arabe ?", "a": "رمان"},
         {"q": "Comment dit-on « pastèque » en arabe ?", "a": "بطيخ"},
         {"q": "Comment dit-on « melon » en arabe ?", "a": "شمام"},
-        {"q": "Comment dit-on « ananas » en arabe ?", "a": "أناناس"},
-        {"q": "Comment dit-on « pêche » en arabe ?", "a": "خوخ"},
-        {"q": "Comment dit-on « poire » en arabe ?", "a": ["إجاص", "كمثرى"]},
-        {"q": "Comment dit-on « mangue » en arabe ?", "a": "مانجو"},
-        {"q": "Comment dit-on « cerise » en arabe ?", "a": "كرز"},
-    ],
-
-    # ====== LÉGUMES ======
-    "Bases – Légumes": [
         {"q": "Comment dit-on « tomate » en arabe ?", "a": ["طماطم", "بندورة"]},
         {"q": "Comment dit-on « concombre » en arabe ?", "a": "خيار"},
         {"q": "Comment dit-on « carotte » en arabe ?", "a": "جزر"},
-        {"q": "Comment dit-on « pomme de terre » en arabe ?", "a": "بطاطا"},
-        {"q": "Comment dit-on « oignon » en arabe ?", "a": "بصل"},
-        {"q": "Comment dit-on « ail » en arabe ?", "a": "ثوم"},
-        {"q": "Comment dit-on « salade / laitue » en arabe ?", "a": "خس"},
-        {"q": "Comment dit-on « aubergine » en arabe ?", "a": "باذنجان"},
-        {"q": "Comment dit-on « poivron » en arabe ?", "a": "فلفل"},
-        {"q": "Comment dit-on « épinards » en arabe ?", "a": "سبانخ"},
-    ],
-
-    # ====== COULEURS ======
-    "Bases – Couleurs": [
-        {"q": "Comment dit-on « blanc » en arabe ?", "a": "أبيض"},
-        {"q": "Comment dit-on « noir » en arabe ?", "a": "أسود"},
-        {"q": "Comment dit-on « rouge » en arabe ?", "a": "أحمر"},
-        {"q": "Comment dit-on « bleu » en arabe ?", "a": "أزرق"},
-        {"q": "Comment dit-on « vert » en arabe ?", "a": "أخضر"},
-        {"q": "Comment dit-on « jaune » en arabe ?", "a": "أصفر"},
-        {"q": "Comment dit-on « orange (couleur) » en arabe ?", "a": "برتقالي"},
-        {"q": "Comment dit-on « rose » en arabe ?", "a": "وردي"},
-        {"q": "Comment dit-on « violet / pourpre » en arabe ?", "a": "بنفسجي"},
-        {"q": "Comment dit-on « marron / brun » en arabe ?", "a": "بني"},
-        {"q": "Comment dit-on « gris » en arabe ?", "a": "رمادي"},
-    ],
-
-    # ====== NOMBRES ======
-    "Bases – Nombres 0→10": [
-        {"q": "Comment dit-on « zéro » en arabe ?", "a": "صفر"},
-        {"q": "Comment dit-on « un » en arabe ?", "a": "واحد"},
-        {"q": "Comment dit-on « deux » en arabe ?", "a": ["اثنان", "إثنان", "اتنين"]},
-        {"q": "Comment dit-on « trois » en arabe ?", "a": "ثلاثة"},
-        {"q": "Comment dit-on « quatre » en arabe ?", "a": "أربعة"},
-        {"q": "Comment dit-on « cinq » en arabe ?", "a": "خمسة"},
-        {"q": "Comment dit-on « six » en arabe ?", "a": "ستة"},
-        {"q": "Comment dit-on « sept » en arabe ?", "a": "سبعة"},
-        {"q": "Comment dit-on « huit » en arabe ?", "a": "ثمانية"},
-        {"q": "Comment dit-on « neuf » en arabe ?", "a": "تسعة"},
-        {"q": "Comment dit-on « dix » en arabe ?", "a": "عشرة"},
-    ],
-
-    # ====== JOURS ======
-    "Bases – Jours de la semaine": [
-        {"q": "Comment dit-on « samedi » en arabe ?", "a": "السبت"},
-        {"q": "Comment dit-on « dimanche » en arabe ?", "a": "الأحد"},
-        {"q": "Comment dit-on « lundi » en arabe ?", "a": "الاثنين"},
-        {"q": "Comment dit-on « mardi » en arabe ?", "a": "الثلاثاء"},
-        {"q": "Comment dit-on « mercredi » en arabe ?", "a": "الأربعاء"},
-        {"q": "Comment dit-on « jeudi » en arabe ?", "a": "الخميس"},
-        {"q": "Comment dit-on « vendredi » en arabe ?", "a": "الجمعة"},
-    ],
-
-    # ====== FAMILLE ======
-    "Bases – Famille": [
-        {"q": "Comment dit-on « mère » en arabe ?", "a": "أم"},
-        {"q": "Comment dit-on « père » en arabe ?", "a": "أب"},
-        {"q": "Comment dit-on « fils » en arabe ?", "a": "ابن"},
-        {"q": "Comment dit-on « fille (enfant) » en arabe ?", "a": "ابنة"},
-        {"q": "Comment dit-on « frère » en arabe ?", "a": "أخ"},
-        {"q": "Comment dit-on « sœur » en arabe ?", "a": "أخت"},
-        {"q": "Comment dit-on « grand-père » en arabe ?", "a": "جد"},
-        {"q": "Comment dit-on « grand-mère » en arabe ?", "a": "جدة"},
-        {"q": "Comment dit-on « oncle (paternel/maternel) » en arabe ?", "a": ["عم", "خال"]},
-        {"q": "Comment dit-on « tante (paternelle/maternelle) » en arabe ?", "a": ["عمة", "خالة"]},
-    ],
-
-    # ====== PRONOMS ======
-    "Bases – Pronoms": [
-        {"q": "Comment dit-on « je » en arabe ?", "a": "أنا"},
-        {"q": "Comment dit-on « tu (masc.) » en arabe ?", "a": "أنتَ"},
-        {"q": "Comment dit-on « tu (fém.) » en arabe ?", "a": "أنتِ"},
-        {"q": "Comment dit-on « il » en arabe ?", "a": "هو"},
-        {"q": "Comment dit-on « elle » en arabe ?", "a": "هي"},
-        {"q": "Comment dit-on « nous » en arabe ?", "a": "نحن"},
-        {"q": "Comment dit-on « vous » en arabe ?", "a": "أنتم"},
-        {"q": "Comment dit-on « ils/elles » en arabe ?", "a": "هم"},
-    ],
-
-    # ====== ANIMAUX ======
-    "Bases – Animaux": [
-        {"q": "Comment dit-on « chat » en arabe ?", "a": ["قط", "قطة"]},
-        {"q": "Comment dit-on « chien » en arabe ?", "a": "كلب"},
-        {"q": "Comment dit-on « oiseau » en arabe ?", "a": "طائر"},
-        {"q": "Comment dit-on « cheval » en arabe ?", "a": "حصان"},
-        {"q": "Comment dit-on « vache » en arabe ?", "a": "بقرة"},
-        {"q": "Comment dit-on « mouton » en arabe ?", "a": "خروف"},
-        {"q": "Comment dit-on « poisson » en arabe ?", "a": "سمك"},
-        {"q": "Comment dit-on « chameau » en arabe ?", "a": "جمل"},
-        {"q": "Comment dit-on « lapin » en arabe ?", "a": "أرنب"},
-        {"q": "Comment dit-on « lion » en arabe ?", "a": "أسد"},
-    ],
-
-    # ====== VERBES DE BASE (présent) ======
-    "Bases – Verbes (présent)": [
-        {"q": "Comment dit-on « je mange » en arabe standard ?", "a": "أنا آكل"},
-        {"q": "Comment dit-on « je bois » en arabe standard ?", "a": "أنا أشرب"},
-        {"q": "Comment dit-on « je vais » en arabe standard ?", "a": "أنا أذهب"},
-        {"q": "Comment dit-on « je veux » en arabe standard ?", "a": "أنا أريد"},
-        {"q": "Comment dit-on « je comprends » en arabe standard ?", "a": "أنا أفهم"},
-        {"q": "Comment dit-on « je lis » en arabe standard ?", "a": "أنا أقرأ"},
-        {"q": "Comment dit-on « je parle » en arabe standard ?", "a": "أنا أتحدث"},
-        {"q": "Comment dit-on « je travaille » en arabe standard ?", "a": "أنا أعمل"},
-        {"q": "Comment dit-on « j’étudie » en arabe standard ?", "a": "أنا أدرس"},
-        {"q": "Comment dit-on « j’habite à… » en arabe standard ?", "a": "أنا أسكن"},
+        {"q": "Que signifie en français « خيار » ?", "a": "concombre"},
+        {"q": "Que signifie en français « رمان » ?", "a": "grenade"},
     ],
 }
